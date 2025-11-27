@@ -1,0 +1,21 @@
+# Etapa de desarrollo para React + Vite
+FROM node:lts-alpine AS base
+
+# Directorio de trabajo dentro del contenedor
+WORKDIR /app
+
+# Copiar archivos de dependencias e instalarlos
+COPY package*.json ./
+RUN npm install
+
+# Copiar el resto del código fuente
+COPY . .
+
+# Exponer el puerto de Vite (Por default 5173)
+EXPOSE 5173
+
+# Variable para evitar errores de hot reload
+ENV CHOKIDAR_USEPOLLING=true
+
+# Comando para iniciar el servidor de desarrollo
+CMD ["npm", "run", "dev"]
