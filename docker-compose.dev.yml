@@ -1,14 +1,18 @@
 services:
   react-dev:
-    container_name: react_dev
+    container_name: H-Suite-portal
     build:
       context: .
       dockerfile: Dockerfile.dev
     ports:
-      - "5173:5173"
+      - "5100:5100"
     volumes:
       - .:/app
       - /app/node_modules
     environment:
       - CHOKIDAR_USEPOLLING=true
+    labels:
+      - "com.hsuite.project=H-Suite"
+      - "com.hsuite.app=portal"
+      - "com.hsuite.environment=dev"
     command: ["npm", "run", "dev"]

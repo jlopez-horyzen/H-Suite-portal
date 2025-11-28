@@ -12,7 +12,7 @@ RUN npm install
 COPY . .
 
 # Exponer el puerto de Vite (Por default 5173)
-EXPOSE 5173
+EXPOSE 5100
 
 # Variable para evitar errores de hot reload
 ENV CHOKIDAR_USEPOLLING=true
